@@ -21,15 +21,17 @@
                     <th scope="col">Categoria</th>
                     <th scope="col">Quantidade</th>
                     <th scope="col">Fornecedor</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
 
             <?php
 
                 include 'conexao.php';
-                $sql = "SELECT * FROM 'estoque'";
+                $sql = "SELECT * FROM estoque";
                 $buscar = mysqli_query($conexao, $sql);
 
+                $i = 0;
                 while ($array = mysqli_fetch_array($buscar)){
                     $id_estoque = $array['id_estoque'];
                     $numero = $array['numero'];
@@ -46,12 +48,18 @@
                 <td><?php echo $categoria ?></td>
                 <td><?php echo $quantidade ?></td>
                 <td><?php echo $fornecedor ?></td>
+                <td><a class="btn btn-warning btn-sm" style=" color: #fff" href="editar_produto.php?id=<?php echo $id_estoque ?>" role="button">Editar</a></td>
+                <td><a class="btn btn-danger btn-sm" style=" color: #fff" href="#?id=<?php echo $id_estoque ?>" role="button">Deletar</a></td>
             </tr>
+            
 
-            <?php } ?>
+            <?php
+                $i++;
+                }
+            ?>
 
         </table>
-
+        <p>Total de itens cadastrados: <?php echo $i; ?></p>
     </div>
 
 
