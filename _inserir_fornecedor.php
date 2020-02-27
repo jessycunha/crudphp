@@ -10,28 +10,23 @@
     <?php
 
         include 'conexao.php';
-
-        //variáveis recebem os valores dos atributos
-        $numero = $_POST['numero'];
-        $nome = $_POST['nome'];
-        $categoria = $_POST['categoria'];
-        $quantidade = $_POST['quantidade'];
         $fornecedor = $_POST['fornecedor'];
-
-        $sql = "INSERT INTO estoque (numero, nome, categoria, quantidade, fornecedor) VALUES ($numero, '$nome', '$categoria', $quantidade, '$fornecedor')";
+        $sql = "INSERT INTO fornecedores (fornecedor) VALUES ('$fornecedor')";
         $inserir = mysqli_query($conexao, $sql);
+
+
     ?>
+
     <link rel="stylesheet" href='css/bootstrap.css'>
 
     <div class='container' style='width: 500px; margin-top: 20px'>
         <center>
-            <h4>Produto adicionado com sucesso!</h4>
+            <h4>Fornecedor adicionado com sucesso!</h4>
         </center>
         <div style='padding-top: 20px'>
             <center>
                 <a href='menu.php' role='button' class='btn btn-sm btn-primary'>Início</a>
-                <a href='inserir_produto.php' role='button' class='btn btn-sm btn-primary'>Cadastrar novo produto</a>
-                <a href='listar_produtos.php' role='button' class='btn btn-sm btn-primary'>Ver os produtos</a>
+                <a href='inserir_fornecedor.php' role='button' class='btn btn-sm btn-primary'>Cadastrar novo fornecedor</a>
             </center>
         </div>
     </div>

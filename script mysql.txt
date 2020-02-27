@@ -1,0 +1,23 @@
+create database php;
+
+create table estoque(
+id_estoque int auto_increment,
+numero int not null,
+nome varchar(200) not null,
+categoria varchar(100) not null,
+quantidade int not null,
+fornecedor varchar(100) not null,
+primary key (id_estoque)
+);
+
+create table categorias(
+id_categoria int auto_increment,
+categoria varchar(100) not null,
+primary key (id_categoria)
+);
+
+create table fornecedores(
+id_fornecedor int auto_increment,
+fornecedor varchar(100) not null,
+primary key (id_fornecedor)
+);
