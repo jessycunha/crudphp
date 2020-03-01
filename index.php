@@ -34,11 +34,16 @@
                     <label>Senha</label>
                     <input type='password' name='senha' class='form-control' placeholder='Digite sua senha'>
                 </div>
-            </form>
             <div style='text-align: right'>
                 <button type='submit' class='btn btn-sm btn-success'>Entrar</button>
             </div>
+            </form>
         </div>
+    </div>
+    <div style='margin-top: 10px'>
+        <center>
+            <small>Cadastre-se <a href='inserir_usuario_externo.php'>aqui</small>
+        </center>
     </div>
    
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

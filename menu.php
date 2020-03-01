@@ -54,6 +54,28 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">APROVAR USUARIOS</h5>
+                        <p class="card-text">Ative o cadastro de um usuário cadastrado.</p>
+                        <a href="aprovar_usuario.php" class="btn btn-primary">Aprovar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">LISTRAR USUARIOS</h5>
+                        <p class="card-text">Veja todos os usuários cadastrados nesse sistema</p>
+                        <a href="listar_usuarios.php" class="btn btn-primary">Usuários</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     
     </div>
 
