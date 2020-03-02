@@ -10,10 +10,29 @@
 
 </head>
 <body>
-    
+
+        <?php
+        
+        session_start();
+        $email = $_SESSION['email'];
+        if (!isset($_SESSION['email'])){
+            header('Location: index.php');
+        }
+        
+        include 'conexao.php';
+        $sql = "SELECT nivel FROM usuarios WHERE email = '$email' AND status = 'Ativo'";
+        $buscar = mysqli_query($conexao, $sql);
+        $array = mysqli_fetch_array($buscar);
+        $nivel = $array['nivel'];
+        ?>
+
     <div class='container' style='margin-top: 100px'>
     
         <div class="row">
+
+        <?php
+        if (($nivel == 1) || ($nivel == 2)){
+        ?> 
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
@@ -23,6 +42,7 @@
                     </div>
                 </div>
             </div>
+        <?php } ?>
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
@@ -68,7 +88,7 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">LISTRAR USUARIOS</h5>
+                        <h5 class="card-title">LISTAR USUARIOS</h5>
                         <p class="card-text">Veja todos os usuários cadastrados nesse sistema</p>
                         <a href="listar_usuarios.php" class="btn btn-primary">Usuários</a>
                     </div>

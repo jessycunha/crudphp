@@ -25,14 +25,14 @@
     <div class='container' id='tamanho'>
         <div style='padding: 10px'>
             <center><img src='imagens/cadeado.png' width='125px' height='125px'></center>
-            <form>
+            <form action='index1.php' method='post'>
                 <div class='form-group'>
-                    <label>Usuário</label>
-                    <input type='text' name='usuario' class='form-control' placeholder='Digite seu nome de usuário'>
+                    <label>E-mail</label>
+                    <input type='text' name='email' class='form-control' placeholder='Digite seu e-mail' required>
                 </div>
                 <div class='form-group'>
                     <label>Senha</label>
-                    <input type='password' name='senha' class='form-control' placeholder='Digite sua senha'>
+                    <input type='password' name='senhausuario' class='form-control' placeholder='Digite sua senha' required>
                 </div>
             <div style='text-align: right'>
                 <button type='submit' class='btn btn-sm btn-success'>Entrar</button>

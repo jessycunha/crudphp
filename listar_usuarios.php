@@ -30,7 +30,7 @@
             <?php
 
                 include 'conexao.php';
-                $sql = "SELECT * FROM usuarios ORDER BY nome ASC";
+                $sql = "SELECT * FROM usuarios ORDER BY usuario ASC";
                 $buscar = mysqli_query($conexao, $sql);
 
                 $i = 0;

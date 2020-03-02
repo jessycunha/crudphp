@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atualização de Cadastro</title>
+    <title>Atualização de Usuários</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -31,72 +31,46 @@
 
     <div class='container' id='tamanhocontainer' style='margin-top: 40px'>
         <h4>Formulário de Atualização</h4>
-        <form action='_atualizar_produto.php' method='post' style='margin-top: 20px'>
+        <form action='_atualizar_usuario.php' method='post' style='margin-top: 20px'>
             
             <?php 
-                $sql = "SELECT * FROM estoque WHERE id_estoque = $id";
+                $sql = "SELECT * FROM usuarios WHERE id_usuario = $id";
                 $buscar = mysqli_query ($conexao, $sql);
 
                 while ($array = mysqli_fetch_array($buscar)){
-                    $id_estoque = $array['id_estoque'];
-                    $numero = $array['numero'];
-                    $nome = $array['nome'];
-                    $categoria = $array['categoria'];
-                    $quantidade = $array['quantidade'];
-                    $fornecedor = $array['fornecedor'];
+                    $id_usuario = $array['id_usuario'];
+                    $usuario = $array['usuario'];
+                    $email = $array['email'];
+                    $nivel = $array['nivel'];
+                    $status = $array['status'];
             ?> 
 
             <div class="form-group">
-                <label>Número do produto</label>
-                <input type="number" class="form-control" name='numero' value='<?php echo $numero ?>'>
-                <input type="number" class="form-control" name='id' value='<?php echo $id ?>' style='display: none'>
+                <label>Usuário</label>
+                <input type="text" class="form-control" name='usuario' value='<?php echo $usuario ?>'>
+                <input type="number" class="form-control" name='id_usuario' value='<?php echo $id_usuario ?>' style='display: none'>
             </div>
 
             <div class="form-group">
-                <label>Nome do produto</label>
-                <input type="text" class="form-control" name='nome' value='<?php echo $nome ?>'>
+                <label>E-mail</label>
+                <input type="email" class="form-control" name='email' value='<?php echo $email?>'>
             </div>
 
             <div class="form-group">
-                <label>Categoria</label>
-                <select class="form-control" name='categoria' value='<?php echo $categoria ?>'>
-                    <?php
-                        include 'conexao.php';
-                        $sql = "SELECT * FROM categorias ORDER BY categoria ASC";
-                        $buscar = mysqli_query($conexao, $sql);
-
-                        while ($array = mysqli_fetch_array($buscar)){
-                            $id_categoria = $array['id_categoria'];
-                            $categoria = $array['categoria'];
-                    ?>
-                        <option><?php echo $categoria; ?></option>
-                        <?php } ?>
+                <label>Nível</label>
+                <select class="form-control" name='nivel' value='<?php echo $nivel ?>'>
+                    <option value='1'>Administrador</option> <!--Acesso completo-->
+                    <option value='2'>Operador</option>   <!--Apenas edição-->
+                    <option value='3'>Conferente</option> <!--Apenas visualizar-->
                 </select>
             </div>
 
             <div class="form-group">
-                <label>Quantidade</label>
-                <input type="number" class="form-control" name='quantidade' value='<?php echo $quantidade ?>' disabled>
+                <label>Status</label>
+                <input type="text" class="form-control" name='status' value='<?php echo $status ?>'disabled>
             </div>
 
-            <div class="form-group">
-                <label>Fornecedor</label>
-                <select class="form-control" name='fornecedor' value='<?pgp echo $fornecedor ?>'>
-                    <?php 
-                        include 'conexao.php';
-                        $sql = "SELECT * FROM fornecedores ORDER BY fornecedor ASC";
-                        $buscar = mysqli_query($conexao, $sql);
-
-                        while ($array = mysqli_fetch_array($buscar)){
-                            $id_fornecedor = $array['id_fornecedor'];
-                            $fornecedor = $array['fornecedor'];
-
-                    ?>
-                        <option><?php echo $fornecedor; ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-
+            
             <div style='text-align: right'>
             <button type='submit' id='botao' class='btn btn-sm'>Atualizar</button>
             </div>
